@@ -83,6 +83,8 @@ public class Cliente implements ItemLista{
                 '}';
     }
 
+    public Cliente(){}
+
     public Cliente(String nome, String cpf, String rg, Cidade cidade, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
