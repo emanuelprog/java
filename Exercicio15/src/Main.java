@@ -9,6 +9,7 @@ public class Main {
         String op = "8";
         do {
             imprimirMenu();
+            entrada.reset();
             if(entrada.hasNextLine())
             op = entrada.nextLine();
             switch (op) {
@@ -30,24 +31,45 @@ public class Main {
 
                     break;
                 case "3":
-//                    imprimirHomens();
+                    gerenciadorCliente.imprimirTodos(gerenciadorCliente.getListaHomens());
                     break;
                 case "4":
+                    gerenciadorCliente.imprimirTodos(gerenciadorCliente.getListaMulheres());
                     break;
                 case "5":
+                    System.out.println("Informe o nome da cidade: ");
+                    String nome;
+                    nome = entrada.nextLine();
+                    System.out.println("Informe o nome do estado: ");
+                    String estado;
+                    estado = entrada.nextLine();
+                    Cidade cidade = new Cidade(nome, estado);
+
+                    gerenciadorCliente.imprimirTodos(gerenciadorCliente.getLista(cidade));
                     break;
                 case "6":
+                    System.out.println("Informe o id do cliente: ");
+                    Integer idClienteBusca;
+                    idClienteBusca = entrada.nextInt();
+
+                    Cliente clienteBuscar = new Cliente();
+                    clienteBuscar.setId(idClienteBusca);
+                    System.out.println(gerenciadorCliente.pesquisar(clienteBuscar));
                     break;
                 case "7":
-                    break;
-                case "8":
+                    gerenciadorCliente.imprimirTodos();
                     break;
                 default:
                     System.out.println("Número inválido");
                     break;
             }
+            System.out.println("Deseja continuar? \n (1) Sim (2) Não");
+            op = entrada.nextLine();
+            if (op.equals("2")) {
+                op = "-1";
+            }
         }
-        while (!op.equals("8"));
+        while (!op.equals("-1"));
         entrada.close();
 
     }
@@ -55,7 +77,7 @@ public class Main {
     public static void imprimirMenu() {
         System.out.println(" (1) Salvar \n (2) Excluir \n (3) Imprimir Homens " +
                 "\n (4) Imprimir Mulheres \n (5) Imprimir por Cidade \n (6) Imprimir Busca de cliente " +
-                "\n (7) Imprimir Todos \n (8) Sair");
+                "\n (7) Imprimir Todos");
     }
 
     public static Cliente lerCliente() {
@@ -77,20 +99,4 @@ public class Main {
 
         return cliente;
     }
-
-//    public static Cliente excluirCliente(Integer id) {
-//
-//        for (Cliente cliente : gerenciadorCliente.getLista()) {
-//            if (cliente.equals(id));
-//            return cliente;
-//        }
-//        return null;
-//    }
-//
-//    public static void imprimirHomens() {
-//        GerenciadorRegistroCliente gerenciadorRegistroCliente = new GerenciadorRegistroCliente();
-//        for (Cliente clientesHomens : gerenciadorRegistroCliente.getListaHomens()) {
-//            System.out.println(clientesHomens);
-//        }
-//    }
 }

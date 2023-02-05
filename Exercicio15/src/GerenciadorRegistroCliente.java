@@ -32,4 +32,10 @@ public class GerenciadorRegistroCliente extends GerenciadorRegistroGenerico<Clie
         }
         return listCidades;
     }
+
+    public void imprimirTodos(List<Cliente> clientes) {
+        for (Cliente cliente : clientes) {
+            System.out.println(cliente);
+        }
+    }
 }
