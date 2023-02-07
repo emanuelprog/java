@@ -3,19 +3,19 @@ import java.util.*;
 public class GerenciadorCadastro<Pessoa extends ItemLista> implements Gerenciador<Pessoa> {
 
     private List<Pessoa> lista = new ArrayList<>();
-    private Map<String, Pessoa> apelidoParaAluno = new HashMap<>();
+    private Map<String, Pessoa> listaPessoas = new HashMap<>();
     private Integer id = 0;
     @Override
     public void salvar(Pessoa obj) {
         obj.setId(++id);
         lista.add(obj);
-        this.apelidoParaAluno.put(obj.getApelido(), obj);
+        this.listaPessoas.put(obj.getApelido(), obj);
     }
 
     @Override
     public void excluir(Pessoa obj) {
         lista.remove(obj);
-        this.apelidoParaAluno.remove(obj);
+        this.listaPessoas.remove(obj);
     }
 
     @Override
@@ -49,10 +49,10 @@ public class GerenciadorCadastro<Pessoa extends ItemLista> implements Gerenciado
     }
 
     public Pessoa buscaPorApelido(String apelido) {
-        if (!apelidoParaAluno.containsKey(apelido)) {
+        if (!listaPessoas.containsKey(apelido)) {
             System.out.println("Não contem esse apelido!");
         } else {
-            return apelidoParaAluno.get(apelido);
+            return listaPessoas.get(apelido);
         }
         return null;
     }
