@@ -1,3 +1,7 @@
+package CPF;
+
+import CPF.InvalidCpfException;
+
 public class ValidaCpf {
 
     public static void validaCpf(String cpf) throws InvalidCpfException {

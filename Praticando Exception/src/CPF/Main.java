@@ -1,3 +1,8 @@
+package CPF;
+
+import CPF.InvalidCpfException;
+import CPF.ValidaCpf;
+
 public class Main {
     public static void main(String[] args) {
         try {
