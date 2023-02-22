@@ -1,19 +1,19 @@
 public class Calculadora {
 
 
-    public double somar(double x, double y) {
+    public int somar(int x, int y) {
         return x + y;
     }
 
-    public double subtrair(double x, double y) {
+    public int subtrair(int x, int y) {
         return x -y;
     }
 
-    public double dividir(double x, double y) {
+    public int dividir(int x, int y) {
         return x / y;
     }
 
-    public double multiplicar(double x, double y) {
+    public int multiplicar(int x, int y) {
         return x * y;
     }
 }
