@@ -24,6 +24,6 @@ public class LeitorArquivo {
         }
 
 //fim do try cath
-        System.out.println();
+        System.out.println("Sucesso!");
     }
 }
