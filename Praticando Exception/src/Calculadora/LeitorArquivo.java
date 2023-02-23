@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class LeitorArquivo {
 
-    public static void imprimirDadosArquivo(String nome) throws LeitorException {
+        public static void imprimirDadosArquivo(String nome) throws LeitorException {
         System.out.printf("\nConteúdo do arquivo texto:\n\n");
 //colocar try Catch aqui
         try {
@@ -20,7 +20,7 @@ public class LeitorArquivo {
             }
             arq.close();
         } catch (IOException e) {
-            throw new LeitorException(e.getMessage(), e);
+            throw new LeitorException("Erro na leitura do arquivo!", e);
         }
 
 //fim do try cath
